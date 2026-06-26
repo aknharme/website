@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  background: #050505;
+}
+
+@theme {
+  --color-gold: #D4AF37;
+  --color-gold-light: #F1D570;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.05), transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    #050505;
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+  background-attachment: fixed;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #fff;
+}
+
+/* Keyframes for marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-\\[marquee_20s_linear_infinite\\] {
+  animation: marquee 20s linear infinite;
+}
+
+.nav-link {
+  @apply relative text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 transition-colors;
+}
+
+.nav-link:hover {
+  @apply text-[#D4AF37];
+}
+
+.nav-link::after {
+  @apply absolute -bottom-2 left-0 h-[2px] w-0 bg-[#D4AF37] transition-all content-[''];
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center border border-[#D4AF37] bg-[#D4AF37] px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-black transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply -translate-y-1 bg-white border-white shadow-[0_0_35px_rgba(212,175,55,0.5)];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center border border-white/20 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply -translate-y-1 border-[#D4AF37] text-[#D4AF37];
+}
+
+.hero-section {
+  @apply relative min-h-screen flex flex-col justify-center;
+}
+
+.hero-bg {
+  @apply absolute inset-0 bg-[url('https://images.unsplash.com/photo-1598371839696-5e5bb00b059f?auto=format&fit=crop&w=1920&q=85')] bg-cover bg-center;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-[#050505];
+}
+
+.glass-card {
+  @apply border border-white/5 bg-white/[0.02] backdrop-blur-md p-8 transition-all duration-500 relative overflow-hidden;
+}
+
+.glass-card:hover {
+  @apply border-[#D4AF37]/40 shadow-[0_0_40px_rgba(212,175,55,0.08)];
+}
+
+.gallery-item {
+  @apply relative overflow-hidden bg-black;
+}
+
+.gallery-item img {
+  @apply w-full h-full object-cover transition-all duration-700 opacity-80;
+}
+
+.gallery-item:hover img {
+  @apply scale-105 opacity-100;
+}
+
+.gallery-item-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 transition-opacity duration-500;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  @apply opacity-100;
+}
+
+.contact-input {
+  @apply w-full bg-black/50 border border-white/10 px-5 py-4 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#D4AF37] transition-colors;
+}
